@@ -46,7 +46,7 @@ filename and `quality` is JPEG-only; `page.goto` needs an absolute
   `recharts` alias (`src/lib/recharts.tsx`) restores Tooltip's generic typing; the raw package is `recharts-upstream`.
 - **Backend** (`backend/requirements.txt`): `fastapi`, `uvicorn`, `motor`,
   `pymongo`, `pydantic` v2, `python-dotenv`, `httpx`, `requests`, `pandas`,
-  `numpy`, `openpyxl`, `emergentintegrations`, `boto3`, `typer`, `pytest` +
+  `numpy`, `openpyxl`, `boto3`, `typer`, `pytest` +
   `pytest-asyncio`/`xdist`; auth and uploads are covered too — `pyjwt`,
   `python-jose`, `passlib`, `cryptography`, `email-validator`,
   `python-multipart`.
