@@ -34,6 +34,21 @@ frontend code always calls a **relative** path — `apiGet("/status")` →
 (via the Vite proxy) and in production (once both are served behind a single
 origin).
 
+## Deploying to Vercel
+
+The root `vercel.json` configures the frontend and backend as separate Vercel
+services. Requests under `/api/` are routed to FastAPI; all other paths are
+routed to the Vite frontend. The frontend keeps using relative `/api` URLs, so
+the browser reaches the backend through the public rewrite on the shared
+origin. No service binding is needed because neither service makes a
+server-side request to the other.
+
+Set `MONGO_URL` and `DB_NAME` in the Vercel project's environment variables;
+the backend requires both when it starts. Configure `GITHUB_TOKEN` and
+`LLM_API_KEY` there as needed for authenticated GitHub scans and live AI
+explanations. Never put these values in `vercel.json` or frontend build
+variables.
+
 ## Backend
 
 FastAPI, async throughout. `python` is the app venv interpreter
